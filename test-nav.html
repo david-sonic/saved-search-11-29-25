@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .test-container {
+            max-width: 375px;
+            margin: 0 auto;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .nav-container {
+            background: white;
+            border-bottom: 1px solid #e8e9eb;
+            padding: 16px 24px 8px;
+            position: relative;
+            z-index: 4000;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            min-height: 60px !important;
+        }
+        
+        .nav-top {
+            display: flex !important;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        
+        .nav-left {
+            display: flex !important;
+            align-items: center;
+            gap: 16px;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(255, 0, 0, 0.2) !important;
+        }
+        
+        .nav-right {
+            display: flex !important;
+            align-items: center;
+            gap: 16px;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(0, 255, 0, 0.2) !important;
+        }
+        
+        .logo {
+            height: 28px;
+            cursor: pointer;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(0, 0, 255, 0.2) !important;
+        }
+        
+        .location {
+            display: flex !important;
+            align-items: center;
+            gap: 3px;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(255, 255, 0, 0.2) !important;
+        }
+        
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(255, 0, 255, 0.2) !important;
+        }
+        
+        .location-text {
+            font-weight: 500;
+            font-size: 14px;
+            color: #006fa6;
+        }
+        
+        /* Force visibility in all media queries */
+        @media (max-width: 600px) {
+            .nav-container,
+            .nav-top,
+            .nav-left,
+            .nav-right,
+            .logo,
+            .location,
+            .nav-icon {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .nav-top {
+                display: flex !important;
+            }
+            
+            .nav-left,
+            .nav-right,
+            .location {
+                display: flex !important;
+            }
+        }
+        
+        @media (min-width: 601px) {
+            .nav-container,
+            .nav-top,
+            .nav-left,
+            .nav-right,
+            .logo,
+            .location,
+            .nav-icon {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .nav-top {
+                display: flex !important;
+            }
+            
+            .nav-left,
+            .nav-right,
+            .location {
+                display: flex !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Navigation Visibility Test</h1>
+    <p>This is a simple test to check if navigation elements are visible in both normal and inspect modes.</p>
+    
+    <div class="test-container">
+        <div class="nav-container">
+            <div class="nav-top">
+                <div class="nav-left">
+                    <div class="logo">LOGO</div>
+                </div>
+                <div class="nav-right">
+                    <div class="location">
+                        <span class="location-text">75214</span>
+                        <div class="nav-icon">📍</div>
+                    </div>
+                    <div class="nav-icon">❤️</div>
+                    <div class="nav-icon">👤</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="padding: 20px;">
+            <h2>Test Content</h2>
+            <p>You should see colored backgrounds for each navigation element:</p>
+            <ul>
+                <li>Red background: nav-left</li>
+                <li>Green background: nav-right</li>
+                <li>Blue background: logo</li>
+                <li>Yellow background: location</li>
+                <li>Magenta background: nav-icons</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

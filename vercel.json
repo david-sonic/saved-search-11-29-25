@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/prototype2/search-not-saved.html"
+    }
+  ]
+}

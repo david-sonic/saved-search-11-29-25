@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Navigation Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: white;
+            overflow-x: hidden;
+        }
+
+        .mobile-container {
+            width: 100%;
+            max-width: 375px;
+            min-height: 100vh;
+            margin: 0 auto;
+            position: relative;
+            background: white;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 600px) {
+            .mobile-container {
+                width: 100vw;
+                max-width: none;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .mobile-container {
+                width: 375px;
+                border: 2px solid #007bff;
+                box-shadow: 0 0 30px rgba(0,123,255,0.3);
+                margin: 20px auto;
+                border-radius: 20px;
+            }
+            
+            body {
+                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            }
+        }
+
+        /* Navigation - Force visibility in all viewport sizes */
+        .nav-container {
+            background: white !important;
+            border-bottom: 1px solid #e8e9eb;
+            padding: 16px 24px 8px;
+            position: relative;
+            z-index: 4000;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            min-height: 60px !important;
+        }
+
+        /* Override any media query rules that might hide navigation */
+        @media (max-width: 600px) {
+            .nav-container,
+            .nav-top,
+            .nav-left,
+            .nav-right,
+            .logo,
+            .location,
+            .nav-icon {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .nav-top {
+                display: flex !important;
+            }
+            
+            .nav-left,
+            .nav-right,
+            .location {
+                display: flex !important;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .nav-container,
+            .nav-top,
+            .nav-left,
+            .nav-right,
+            .logo,
+            .location,
+            .nav-icon {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .nav-top {
+                display: flex !important;
+            }
+            
+            .nav-left,
+            .nav-right,
+            .location {
+                display: flex !important;
+            }
+        }
+
+        .nav-top {
+            display: flex !important;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .nav-left {
+            display: flex !important;
+            align-items: center;
+            gap: 16px;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(255, 0, 0, 0.2) !important;
+        }
+
+        .nav-right {
+            display: flex !important;
+            align-items: center;
+            gap: 16px;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(0, 255, 0, 0.2) !important;
+        }
+
+        .hamburger-menu {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .logo {
+            height: 28px;
+            cursor: pointer;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(0, 0, 255, 0.2) !important;
+        }
+
+        .location {
+            display: flex !important;
+            align-items: center;
+            gap: 3px;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(255, 255, 0, 0.2) !important;
+        }
+
+        .location-text {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            color: #006fa6;
+            line-height: 24px;
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(255, 0, 255, 0.2) !important;
+        }
+
+        .search-bar {
+            background: #f5f4f3 !important;
+            border: 1px solid #e8e9eb;
+            border-radius: 32px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .search-input {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #666b70;
+            line-height: 24px;
+            border: none;
+            outline: none;
+            background: transparent;
+            flex: 1;
+        }
+
+        .search-button {
+            background: #3e8500;
+            border-radius: 100px;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* FINAL OVERRIDE - Force navigation visibility in ALL conditions */
+        .nav-container,
+        .nav-top,
+        .nav-left,
+        .nav-right,
+        .logo,
+        .location,
+        .nav-icon,
+        .location-text {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+        
+        .nav-top {
+            display: flex !important;
+        }
+        
+        .nav-left,
+        .nav-right,
+        .location {
+            display: flex !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Navigation -->
+        <div class="nav-container">
+            <div class="nav-top">
+                <div class="nav-left">
+                    <div class="hamburger-menu">☰</div>
+                    <div class="logo">LOGO</div>
+                </div>
+                <div class="nav-right">
+                    <div class="location">
+                        <span class="location-text">75214</span>
+                        <div class="nav-icon">📍</div>
+                    </div>
+                    <div class="nav-icon">❤️</div>
+                    <div class="nav-icon">👤</div>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search make, model, or feature">
+                <button class="search-button">
+                    <div class="search-icon">🔍</div>
+                </button>
+            </div>
+        </div>
+        
+        <div style="padding: 20px;">
+            <h2>Complex Navigation Test</h2>
+            <p>This test uses the same CSS structure as your main file but with simple text instead of images.</p>
+            <p>You should see colored backgrounds for each navigation element in both normal and inspect modes.</p>
+        </div>
+    </div>
+</body>
+</html>
